@@ -1,0 +1,665 @@
+@keyframes glow {
+  0% { box-shadow: 0 0 5px #ffd400; }
+  50% { box-shadow: 0 0 20px #ffd400; }
+  100% { box-shadow: 0 0 5px #ffd400; }
+}
+
+#finalOrderModal {
+  animation: glow 2s ease-in-out;
+}
+
+/*Continuous gif*/
+.gif-banner {
+  width: 100%;
+  max-height: 650px;
+  overflow:visible;
+  text-align: center;
+  background: #0f6b5c;
+}
+
+
+
+/* Basic reset & fonts */
+* { box-sizing: border-box; font-family: Arial, sans-serif; }
+body { margin: 0; background: #f3f3f3; color: #0b2f2a; }
+
+/* Header */
+.header {
+  background: #0f6b5c;
+  color: #f7f307;
+  padding: 20px 50px;   /* reduced padding so logo + text align better */
+  display: flex;        /* puts logo and text side by side */
+  align-items: center;  /* vertically centers them */
+}
+
+.header h1 {
+  margin: 0;
+  margin-left: 15px;    /* spacing between logo and text */
+}
+
+.logoo2 {
+  height: 100px;
+  width: 100px;
+}
+
+
+/* Intro */
+.intro { background: #0f6b5c; color: #f7f307; text-align: center; padding: 1px 2px; }
+.primary { 
+  height:30px;
+  width: 130px;
+  background: #00d9f5; 
+  color: black; 
+  border: none; 
+  padding: 1px 1px; 
+  border-radius: 100px; 
+  cursor: pointer; 
+  font-weight: bold; }
+
+.primary:hover {
+  background-color: #0f6b5c;
+  color: #f7f307;
+  transform: scale(1.1); /* slightly darker yellow on hover */
+}
+.secondary { 
+  height:30px;
+  width: 70px;
+  background: rgb(255, 103, 32);
+  border: none; 
+  padding: 8px 14px; 
+  border-radius: 8px; 
+  cursor: pointer; }
+ 
+/*Waves*/
+@keyframes waveDown {
+  0% { transform: translateY(-20px); opacity: 0; }
+  50% { transform: translateY(10px); opacity: 0.7; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.item-panel.open {
+  animation: waveDown 0.6s ease-out;
+}
+
+/* Layout for each order section */
+.orderSection { display: flex; justify-content: center; margin: 18px 0; }
+.item-card { width: 90%; max-width: 800px; height:100%;  display: flex; gap: 50px; background: #0f6b5c; border-radius: 14px; padding: 25px; align-items: flex-start; box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+
+/* Left column: fixed square image area */
+.left-col { width: 160px; flex: 0 0 160px; display:flex; align-items:center; justify-content:center; }
+.image-stack { position: relative; width: 140px; height: 140px; }
+.image-stack .img:hover {
+  background-color: #00d9f5;
+  transform: scale(1.1); /* slightly darker yellow on hover */
+}
+.image-stack.swap .back:hover {
+  background-color: #00d9f5;
+  transform: scale(1.1); /* slightly darker yellow on hover */
+}
+.image-stack .img { position: absolute; width: 100%; height: 100%; object-fit: cover; border: 4px solid #ffd400; border-radius: 8px; transition: transform .18s ease, filter .18s ease, z-index .18s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+.image-stack .back { filter: blur(1px); opacity: 0.9; transform: scale(0.96) translate(20px, 20px); /* ✅ shifted right & down */ z-index: 1; }
+.image-stack .front { filter: none; transform: translate(0, 0); z-index: 2; }
+.image-stack.swap .front { z-index: 1; filter: blur(1px); transform: scale(0.96) translate(20px, 20px); /* ✅ now front becomes back */ }
+.image-stack.swap .back { z-index: 2; filter: none; transform: translate(0, 0); /* ✅ now back becomes front */ }
+
+/* Slight blurred border effect for back image */
+.image-stack .back::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(255,212,64,0.6);
+  pointer-events: none;
+}
+
+/* Right column: content */
+.right-col { flex: 1; display: flex; flex-direction: column; }
+.item-btn { align-self: left; width: 35%; padding: 12px; border-radius: 24px; border: 10px; background: yellow; color: rgb(0, 0, 0); font-weight: bold; cursor: pointer; margin-bottom: 10px; }
+.item-btn:hover {
+  background-color: #00d9f5;
+  transform: scale(1.1); /* slightly darker yellow on hover */
+}
+.item-body { background: rgba(255,255,255,0.06); padding: 8px; border-radius: 8px; }
+.item-body h4 { margin: 6px 0; color: #062a26; }
+
+/* Option labels */
+.item-body label { display: block; margin: 6px 0; color: #062a26; }
+
+/* Quantity list: each qty on its own line */
+.qty-list { margin: 8px 0; display: flex; flex-direction: column; gap: 8px; }
+
+/* Quantity control (created by JS) */
+.qty-control { display: inline-flex; align-items: center; gap: 8px; background: #fff; padding: 6px 8px; border-radius: 8px; }
+.qty-control button { width: 34px; height: 34px; border-radius: 8px; border: 1px solid #ccc; background: #fff; cursor: pointer; font-weight: bold; }
+.qty-control .qty-display { min-width: 64px; text-align: center; color: #0f6b5c; font-weight: 600; }
+
+/* Placeholder text style when qty is empty */
+.qty-placeholder { color: #888; font-style: italic; }
+
+/* Extras section inside item */
+.section-extras { margin-top: 10px; padding: 8px; background: rgba(255,255,255,0.12); border-radius: 8px; }
+.extras-title { margin: 0 0 6px 0; font-weight: 700; }
+.extra-choice { display: flex; align-items: center; gap: 10px; margin: 6px 0; }
+
+
+:root {
+  --plate-pop-duration: 2.2s;   /* how long the pop stays before fading */
+  --plate-pop-scale: 1.12;      /* quick overshoot scale at peak */
+  --plate-pop-size: 28px;       /* emoji size */
+}
+
+/* Replace existing .plate-note rule or add to it */
+.plate-note {
+  position: absolute;
+  top: -28px;
+  right: 22px;
+  background: rgba(0, 0, 0, 0.95);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  line-height: 1;
+  z-index: 10003;
+  pointer-events: none;
+  transform-origin: center;
+  /* keep initial state small & invisible, the animation will pop it */
+  animation: plate-pop var(--plate-pop-duration) ease forwards;
+  font-size: var(--plate-pop-size);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+}
+
+/* apply fade class to shrink out when removing */
+.plate-note.fade-away {
+  transition: opacity .45s ease, transform .45s ease;
+  opacity: 0;
+  transform: scale(.6) translateY(-6px);
+}
+
+/* pop animation */
+@keyframes plate-pop {
+  0%   { transform: scale(.6) translateY(6px); opacity: 0; filter: blur(2px); }
+  10%  { transform: scale(1.18) translateY(-6px); opacity: 1; filter: blur(0); }
+  40%  { transform: scale(var(--plate-pop-scale)) translateY(-8px); opacity: 1; }
+  70%  { transform: scale(0.98) translateY(-6px); opacity: 1; }
+  100% { transform: scale(0.95) translateY(-8px); opacity: 1; } /* keep visible until JS triggers fade-away */
+}
+/* Add to plate button */
+.add-plate { margin-top: 10px; padding: 8px 14px; border-radius: 16px; border: none; background: #0f6b5c; color: #fff; cursor: pointer; }
+
+/* Floating My Plate button */
+.my-plate-btn {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+  background: #00d9f5;
+  color:black;
+  border: none;
+  max-width: 70%;
+  height: 65px;
+  padding: 0px 10px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  cursor: pointer;
+  
+}
+
+.my-plate-btn:hover {
+  background-color: #0f6b5c;
+  color: yellow;
+  transform: scale(); /* slightly darker yellow on hover */
+}
+
+/* Plate panel */
+.plate-panel {
+  position: fixed;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 90%;
+  max-height: 100vh;
+  overflow: auto;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  z-index: 10000;
+}
+.plate-panel h3 { margin-top: 0; }
+.plate-panel ul { list-style: none; padding: 0; margin: 8px 0; }
+.plate-panel li { padding: 8px 6px; border-bottom: 1px solid #f0f0f0; display:flex; gap:8px; align-items:flex-start; }
+.plate-title { font-weight: 700; }
+.plate-details { font-size: 0.85rem; color: #333; margin-left: 6px; }
+
+/* Global extras area */
+.global-extra-row { display:flex; align-items:center; gap:8px; margin:8px 0; }
+.global-qty { margin-left: auto; }
+
+/* Remove button */
+.remove-item { margin-left: auto; background: red; color: #fff; border: none; padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+
+/* Hidden helper */
+.hidden { display: none !important; }
+
+/*Saad emoji*/
+@keyframes floatFade {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-30px); }
+}
+
+.sad-emoji {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  font-size: 32px;
+  animation: floatFade 1s forwards;
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+  .item-card { flex-direction: column; align-items: center; }
+  .left-col { width: 100%; display:flex; justify-content:center; }
+  .right-col { width: 100%; }
+  .plate-panel { right: 8px; left: 8px; width: auto; top: auto; bottom: 12px; transform: none; }
+  .my-plate-btn { right: 12px; top: auto; bottom: 12px; transform: none; }
+}
+
+/* Mobile UX adjustments */
+@media (max-width: 700px) {
+  .item-card { padding: 16px; gap: 20px; }
+  .left-col { width: 110px; flex: 0 0 110px; }
+  .image-stack { width: 110px; height: 110px; }
+  .item-btn { width: 100%; align-self: stretch; padding: 14px; font-size: 16px; }
+  .add-plate { width: 100%; padding: 12px; font-size: 16px; }
+  .qty-control .qty-display { min-width: 48px; }
+  .modal-content { width: 95%; padding: 18px; max-width: 420px; }
+  .plate-panel { right: 8px; left: 8px; bottom: 12px; top: auto; transform: none; width: auto; max-width: 96%; }
+  #myPlateBtn { right: 12px; bottom: 12px; top: auto; transform: none; height: 56px; border-radius: 12px; }
+  .image-stack .img { border-width: 3px; }
+  .curious-img { width: 44px; height: 44px; }
+  .plate-note { top: -36px; right: 12px; font-size: 20px; }
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 400px;
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  color: #0f6b5c;
+  text-align: center;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.modal-content button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  background: #0f6b5c;
+  color: yellow;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.close-btn {
+  position: relative;
+  top: 0px;
+  right: 0px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+
+
+.close-btn:hover {
+  color: #ff0000;
+}
+
+.final-panel {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.final-panel p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #0f6b5c;
+}
+
+.final-panel button {
+  margin: 10px 0;
+  width: 100%;
+  padding: 10px;
+  background: #1e6b0f;
+  color: yellow;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#getLocation {
+  display: block; 
+  margin: 20px auto;
+  width: 50%; /* or try 200px for fixed width */
+  padding: 0px 20px;
+  background-color: #00d9f5; /* dark green */
+  color: #1e6b0f;
+  font-size: 16px;
+  border: none;
+  border-radius: 80px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+#getLocation:hover {
+  background-color: yellow;
+  color: black;
+  transform: scale(1.05);
+}
+
+                            /* Timinggggggg */
+.timing-row {
+  display: flex;
+  gap: 70px;
+  margin: 10px 0;
+}
+
+.timing-option {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 20px; /* slightly tighter spacing */
+}
+
+/* Calendar icon styling */
+.calendar-icon {
+  font-size: 25px;
+  cursor: pointer;
+  padding: 5px 8px;
+  background-color: #00d9f5;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
+}
+
+.calendar-icon:hover {
+  transform: scale(1.1);
+  background-color: yellow;
+  color: black;
+}
+
+/* Enlarged checkbox styling */
+#nowCheck {
+  width: 30px;   /* balanced size */
+  height: 30px;
+  cursor: pointer;
+  accent-color: #0f6b5c; /* theme color */
+  transition: transform 0.2s ease-in-out;
+}
+
+#nowCheck:hover {
+  transform: scale(1.2);
+}
+
+/* Labels stay simple, no hover */
+.timing-option label {
+  font-weight: bold;
+}
+
+.inline-time {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#scheduledTime {
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+
+/* ========== additions and changes for animations & UI ========== */
+/* availability styles */
+.unavailable .item-btn,
+.unavailable .item-btn.disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.avail-msg {
+  background: rgba(255, 244, 179, 0.95);
+  color: #0b2f2a;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+/* initial glow (applied to header on page load) */
+.initial-glow .header {
+  animation: headerGlow 2.6s ease-in-out;
+}
+@keyframes headerGlow {
+  0% { box-shadow: 0 0 0 rgba(255,212,64,0); }
+  40% { box-shadow: 0 0 28px rgba(255,212,64,0.75); transform: translateY(-2px); }
+  100% { box-shadow: 0 0 0 rgba(255,212,64,0); transform: translateY(0); }
+}
+
+/* sparkle (sprinkle) animation - placed inside Add button */
+/* Replace existing .plate-note rule or add to it */
+.plate-note {
+  position: absolute;
+  top: 20px;
+  right: 140px;
+  background: rgba(0, 0, 0, 0.95);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 1000px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 5px;
+  height: 40px;
+  line-height: 1;
+  z-index: 10003;
+  pointer-events: none;
+  transform-origin: center;
+  /* keep initial state small & invisible, the animation will pop it */
+  animation: plate-pop var(--plate-pop-duration) ease forwards;
+  font-size: var(--plate-pop-size);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+}
+
+.plate-note.fade-away {
+  transition: opacity .45s ease, transform .45s ease;
+  opacity: 0;
+  transform: scale(.6) translateY(-6px);
+}
+@keyframes sparkle-pop {
+  0% { transform: translateY(8px) scale(.6); opacity: 0; filter: blur(2px); }
+  20% { opacity: 1; transform: translateY(-6px) scale(1.15); filter: blur(0) rotate(8deg); }
+  60% { transform: translateY(-12px) scale(.95) rotate(-6deg); opacity: .9; }
+  100% { transform: translateY(-28px) scale(.3) rotate(30deg); opacity: 0; }
+}
+
+/* wave-step: used for cascading reveal animation (applied by JS) */
+.wave-step {
+  animation: waveDown 2.20s ease forwards;
+}
+@keyframes waveDown {
+  0% { transform: translateY(-20px); opacity: 0; }
+  50% { transform: translateY(6px); opacity: 0.85; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* .wave-step subtle highlight */
+.wave-step { box-shadow: 0 100px 220px rgba(0,0,0,0.08); border-radius: 6px; }
+
+/* plate badge (persistent while plate has at least one item) */
+.plate-badge {
+  position: absolute;
+  top: -15px;
+  right: 52px;
+  min-width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-width: 20px;
+  border-radius: 140px;
+  text-align: center;
+  background: red;
+  color: #fff;
+  font-weight: 100;
+  font-size: 20px;
+  z-index: 10002;
+  box-shadow: 100 6px 14px rgba(0,0,0,0.18);
+}
+
+/* curious emoji inside final order modal - floats up/down */
+.curious-emoji {
+  position: absolute;
+  top: calc(-1 * var(--curious-distance)); /* start higher to make room */
+  right: 50px;
+  font-size: 400px;
+  animation: curious-bob 2.0s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 10010;
+}
+
+@keyframes curious-bob {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-10px); opacity: 0.95; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* fireworks overlay and thank-you panel */
+.fireworks-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  pointer-events: none;
+}
+.fireworks-overlay .fireworks-bg {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  left:50px;
+  inset: 0;
+  background: url('Animations/FIREWORKS/9db34b4fd962f0d79dfa38c50ddab2ad.gif') center/cover no-repeat;
+  opacity: 1;
+  animation: fw-in 0.6s ease-out;
+}
+.fireworks-overlay .thank-panel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.98);
+  border-radius: 12px;
+  padding: 24px 30px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.28);
+  pointer-events: auto;
+  z-index: 100000;
+  text-align: center;
+  color: yellow;
+  font-weight: 700;
+  font-size: 20px;
+}
+@keyframes fw-in {
+  0% { opacity: 0; transform: scale(.98); }
+  60% { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.fireworks-overlay.fadeout { opacity: 0; transition: opacity 0.9s ease; }
+
+/* ensure Add-to-plate is positioned relative for sparkle absolute child */
+.add-plate { position: relative; overflow: visible; }
+
+/* small accessibility / pointer fixes */
+.plate-note { z-index: 10003; }
+
+
+/* FOOTER */
+footer {
+    background: #0f6b5f;
+    color: white;
+    text-align: center;
+    padding: 15px 100px;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    section {
+        padding: 30px 15px;
+    }
+
+    .menu-img {
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+}
+/* keep existing styles below unchanged (the rest of your CSS file should remain) */
+
+/* If you merge this file with your existing order.css, keep these definitions at top or bottom,
+   but ensure you don't accidentally duplicate keyframes already present in your file. */

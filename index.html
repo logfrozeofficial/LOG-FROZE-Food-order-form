@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LOG FROZE | Full Food Order Form</title>
+  <link rel="stylesheet" href="order.css">
+  <script src="order.js"></script>
+ <script src="W.form/order-availability.js"></script>
+<script src="W.form/order-tea-ketchup.js"></script>
+ <link rel="stylesheet" href="W.form/order-tea-ketchup.css">
+</head>
+<body>
+  
+
+<header class="header">
+  <img src="http://localhost:5500/images/T.Logo.png" alt="LOG FROZE Logo" class="logoo2"><h1 header-name>LOG FROZE</h1>
+</header>
+
+<main>
+  <section class="intro">
+    <h1><i>Welcome to LOG-FROZE Kitchen</i></h1>
+    <p>⬇️Scroll down to see our kitchen⬇️</p>
+       <!--Continuous gif-->
+<div class="gif-banner">
+  <img src="http://localhost:5500/Animations/FIREWORKS/happy-dorito.gif" alt="Food Banner">
+</div>
+    <h2>What would you like to order today?</h2>
+    </section>
+
+
+  <!-- CUTLETS -->
+  <section class="orderSection" data-item="cutlets">
+    <div class="item-card">
+      <div class="left-col">
+        <div class="image-stack" data-card="cutlets">
+          <img src="http://localhost:5500/ExtraImages/cutlets/Cutlets 1.jpeg" class="img front" alt="cutlets front">
+          <img src="http://localhost:5500/ExtraImages/cutlets/Cutlerts 2.jpeg" class="img back" alt="cutlets back">
+        </div>
+      </div>
+
+      <div class="right-col">
+        <button class="item-btn"><b>Chicken Cutlets</b></button><p>Chicken cutlets are made of potatoes🥔 and chicken🐔</p>
+
+        <div class="item-body hidden">
+          <h4>Choose type</h4>
+          <label><input type="checkbox" class="option" data-type="Fresh" data-price="30"> Fresh / Unfry / Unfrozen (30/-)</label>
+          <label><input type="checkbox" class="option" data-type="Frozen" data-price="30"> Frozen (30/-)</label>
+          <label><input type="checkbox" class="option" data-type="Fry" data-price="40"> Fry (40/-)</label>
+          
+          <hr style="height: 2px; width: 100%; ; border: none; background-color: yellow;">
+
+          <div class="qty-list"></div>
+
+          <div class="section-extras hidden">
+            <hr style="height: 2px; width: 100%; ; border: none; background-color: yellow;">
+            <p class="extras-title">Extras for Cutlets</p>
+          <div class="extra-choice">
+  <span>Extra Raita? (50/-)</span>
+  <label>
+    <input type="radio" name="cutlets-raita-cutlets" value="yes" class="local-extra-yes" data-extra="raita"> Yes
+  </label>
+  <label>
+    <input type="radio" name="cutlets-raita-cutlets" value="no" class="local-extra-no" checked> No
+  </label>
+  <!-- ⬇️ This is where the qty bar will appear -->
+  <div class="raita-qty hidden"></div>
+</div>
+
+<div class="extra-choice">
+  <span>Extra Salad? (50/-)</span>
+  <label>
+    <input type="radio" name="cutlets-salad-cutlets" value="yes" class="local-extra-yes" data-extra="salad"> Yes
+  </label>
+  <label>
+    <input type="radio" name="cutlets-salad-cutlets" value="no" class="local-extra-no" checked> No
+  </label>
+  <!-- ⬇️ This is where the qty bar will appear -->
+  <div class="salad-qty hidden"></div>
+</div>
+ </div>
+ <div>
+<button class="add-plate hidden">🍽 Add to Plate</button>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+<hr style="height: 5px; width: 100%; ; border: none; background-color: #0f6b5c;">
+ <br>
+  <!-- SHAMI -->
+  <section class="orderSection" data-item="shami">
+    <div class="item-card">
+      <div class="left-col">
+        <div class="image-stack" data-card="shami">
+          <img src="http://localhost:5500/ExtraImages/kebabs/rice kebab with fork.jpg" class="img front" alt="shami front">
+          <img src="http://localhost:5500/ExtraImages/kebabs/big kebabs.jpg" class="img back" alt="shami back">
+        </div>
+      </div>
+
+      <div class="right-col">
+        <button class="item-btn"><b>Chicken Shami Kebab</b></button>
+        <p>Chicken Shami are made of daal🫘 and chicken🐔</p>
+
+
+        <div class="item-body hidden">
+          <h4>Choose type</h4>
+          <label><input type="checkbox" class="option" data-type="Fresh" data-price="40"> Fresh / Unfry (40/-)</label>
+          <label><input type="checkbox" class="option" data-type="Frozen" data-price="40"> Frozen (40/-)</label>
+          <label><input type="checkbox" class="option" data-type="Fry" data-price="50"> Fry (50/-)</label>
+<hr style="height: 2px; width: 100%; ; border: none; background-color: yellow;">
+          <div class="qty-list"></div>
+          <div class="section-extras hidden">
+            <hr style="height: 2px; width: 100%; ; border: none; background-color: yellow;">
+            <p class="extras-title">Extras for Shami</p>
+             <div class="extra-choice">
+  <span>Extra Raita? (50/-)</span>
+  <label>
+    <input type="radio" name="shami-raita-shami" value="yes" class="local-extra-yes" data-extra="raita"> Yes
+  </label>
+  <label>
+    <input type="radio" name="shami-raita-shami" value="no" class="local-extra-no" checked> No
+  </label>
+  <!-- ⬇️ This is where the qty bar will appear -->
+  <div class="raita-qty hidden"></div>
+</div>
+
+<div class="extra-choice">
+  <span>Extra Salad? (50/-)</span>
+  <label>
+    <input type="radio" name="shami-salad-shami" value="yes" class="local-extra-yes" data-extra="salad"> Yes
+  </label>
+  <label>
+    <input type="radio" name="shami-salad-shami" value="no" class="local-extra-no" checked> No
+  </label>
+  <!-- ⬇️ This is where the qty bar will appear -->
+  <div class="salad-qty hidden"></div>
+</div>
+
+          </div>
+
+          <button class="add-plate hidden">🍽 Add to Plate</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<hr style="height: 5px; width: 100%; ; border: none; background-color: #0f6b5c;">
+ <br>
+  <!-- BIRYANI -->
+  <section class="orderSection" data-item="biryani">
+    <div class="item-card">
+      <div class="left-col">
+        <div class="image-stack" data-card="biryani">
+          <img src="http://localhost:5500/ExtraImages/biryani/biryani.jpeg" class="img front" alt="biryani front">
+          <img src="http://localhost:5500/ExtraImages/biryani/biryani 2.jpg" class="img back" alt="biryani back">
+        </div>
+      </div>
+
+      <div class="right-col" data-days="Monday,Tuesday">
+        <button class="item-btn"><b>Chicken Biryani</b></button>
+        <p>Everyones favourite Biryani🍗 is made of chicken🐔 and rice🍚. And add potatoes if you are brave😖</p>
+        <div class="item-body hidden">
+          <h4>Choose plate size</h4>
+          <label><input type="checkbox" class="option" data-type="Full Plate" data-price="300"> Full Plate (300/-)</label>
+          <label><input type="checkbox" class="option" data-type="Half Plate" data-price="150"> Half Plate (150/-)</label>
+<hr style="height: 2px; width: 100%; ; border: none; background-color: yellow;">
+          <div class="qty-list"></div>
+
+          <div class="combo-section hidden">
+            <hr style="height: 2px; width: 100%; ; border: none; background-color: yellow;">
+            <h4>Combo (free raita/salad included)</h4>
+            <label><input type="radio" name="biryani-combo" value="Raita"> Raita only</label>
+            <label><input type="radio" name="biryani-combo" value="Salad"> Salad only</label>
+            <label><input type="radio" name="biryani-combo" value="Both"> Raita + Salad</label>
+            <label><input type="radio" name="biryani-combo" value="None" checked> None</label>
+
+
+            <div class="post-combo-extras hidden">
+              <hr style="height: 2px; width: 100%; ; border: none; background-color: yellow;">
+              <p>Do you want any more raita or salad with your biryani?</p>
+              <div class="extra-choice">
+  <span>Extra Raita? (50/-)</span>
+  <label>
+    <input type="radio" name="biryani-raita-biryani" value="yes" class="local-extra-yes" data-extra="raita"> Yes
+  </label>
+  <label>
+    <input type="radio" name="biryani-raita-biryani" value="no" class="local-extra-no" checked> No
+  </label>
+  <!-- ⬇️ This is where the qty bar will appear -->
+  <div class="raita-qty hidden"></div>
+</div>
+
+<div class="extra-choice">
+  <span>Extra Salad? (50/-)</span>
+  <label>
+    <input type="radio" name="biryani-salad-biryani" value="yes" class="local-extra-yes" data-extra="salad"> Yes
+  </label>
+  <label>
+    <input type="radio" name="biryani-salad-biryani" value="no" class="local-extra-no" checked> No
+  </label>
+  <!-- ⬇️ This is where the qty bar will appear -->
+  <div class="salad-qty hidden"></div>
+</div>
+
+            </div>
+          </div>
+
+          <button class="add-plate hidden">🍽 Add to Plate</button>
+        </div>
+        <p class="availability"></p>
+      </div>
+    </div>
+  </section>
+   
+<hr style="height: 5px; width: 100%; ; border: none; background-color: #0f6b5c;">
+ <br>
+  <!-- CHINESE / FRIED RICE -->
+  <section class="orderSection" data-item="rice">
+    <div class="item-card">
+      <div class="left-col">
+        <div class="image-stack" data-card="rice">
+          <img src="http://localhost:5500/ExtraImages/fried-rice/Shrimp-Fried-rice.jpg" class="img front" alt="rice front">
+          <img src="http://localhost:5500/ExtraImages/fried-rice/chicekn-rice.jpg" class="img back" alt="rice back">
+        </div>
+      </div>
+      <div class="right-col" data-days="Friday,Saturday">
+        <button class="item-btn"><b>Chinese / Fried Rice</b></button>
+        <p>These interesting chinese or fried rice are made of chicken🐔, vegetables🥕🫑🥒, eggs🥚 and offcourse rice🍙</p>
+        <div class="item-body hidden">
+          <h4>Choose plate size</h4>
+          <label><input type="checkbox" class="option" data-type="Full Plate" data-price="300"> Full Plate (300/-)</label>
+          <label><input type="checkbox" class="option" data-type="Half Plate" data-price="150"> Half Plate (150/-)</label>
+          
+          <hr style="height: 2px; width: 100%; ; border: none; background-color: yellow;">
+
+          <div class="qty-list"></div>
+
+          <div class="section-extras hidden">
+            <hr style="height: 2px; width: 100%; ; border: none; background-color: yellow;">
+            <p class="extras-title">Extras for Rice</p>
+            <div class="extra-choice">
+            
+  <span>Extra Raita? (50/-)</span>
+  <label>
+    <input type="radio" name="rice-raita-rice" value="yes" class="local-extra-yes" data-extra="raita"> Yes
+  </label>
+  <label>
+    <input type="radio" name="rice-raita-rice" value="no" class="local-extra-no" checked> No
+  </label>
+  <!-- ⬇️ This is where the qty bar will appear -->
+  <div class="raita-qty hidden"></div>
+</div>
+
+<div class="extra-choice">
+  <span>Extra Salad? (50/-)</span>
+  <label>
+    <input type="radio" name="rice-salad-rice" value="yes" class="local-extra-yes" data-extra="salad"> Yes
+  </label>
+  <label>
+    <input type="radio" name="rice-salad-rice" value="no" class="local-extra-no" checked> No
+  </label>
+  <!-- ⬇️ This is where the qty bar will appear -->
+  <div class="salad-qty hidden"></div>
+</div>
+</div>
+
+          <button class="add-plate hidden">🍽 Add to Plate</button>
+        </div>
+        <p class="availability"></p>
+      </div>
+    </div>
+  </section>
+<hr style="height: 5px; width: 100%; ; border: none; background-color: #0f6b5c;">
+ <br>
+  <!-- BURGER -->
+  <section class="orderSection" data-item="burger">
+    <div class="item-card">
+      <div class="left-col">
+        <div class="image-stack" data-card="burger">
+          <img src="http://localhost:5500/ExtraImages/burgers/shami burger.jpg" class="img front" alt="burger front">
+          <img src="http://localhost:5500/ExtraImages/burgers/cutlets burger.jpg" class="img back" alt="burger back">
+        </div>
+      </div>
+
+      <div class="right-col">
+        <button class="item-btn"><b>Burger</b></button>
+        <p>Who doesn't knows about burgers🍔! Soft wheat buns, eggs🥚, patties🥩 and offcourse veggies🫑🥒 to stay healthy 😁</p>
+        <div class="item-body hidden">
+          <h4>Burger Type</h4>
+          <label><input type="checkbox" class="patty" data-type="Shami" data-price="0" data-key="shami">Shami burger</label>
+          <label><input type="checkbox" class="patty" data-type="Cutlets" data-price="0" data-key="cutlets">Cutlets burger</label>
+          <label><input type="checkbox" class="patty" data-type="Egg Masala" data-price="0" data-key="egg">Egg Masala burger</label>
+<hr style="height: 2px; width: 100%; ; border: none; background-color: yellow;">
+          <div class="bun-options hidden"></div>
+
+          <div class="qty-list"></div>
+
+          <div class="section-extras hidden">
+            <hr style="height: 2px; width: 100%; ; border: none; background-color: yellow;">
+            <p class="extras-title">Extras for Burger</p>
+            <div class="extra-choice">
+              
+  <span>Extra Raita? (50/-)</span>
+  <label>
+    <input type="radio" name="burger-raita-burger" value="yes" class="local-extra-yes" data-extra="raita"> Yes
+  </label>
+  <label>
+    <input type="radio" name="burger-raita-burger" value="no" class="local-extra-no" checked> No
+  </label>
+  <!-- ⬇️ This is where the qty bar will appear -->
+  <div class="raita-qty hidden"></div>
+</div>
+
+<div class="extra-choice">
+  <span>Extra Salad? (50/-)</span>
+  <label>
+    <input type="radio" name="burger-salad-burger" value="yes" class="local-extra-yes" data-extra="salad"> Yes
+  </label>
+  <label>
+    <input type="radio" name="burger-salad-burger" value="no" class="local-extra-no" checked> No
+  </label>
+  <!-- ⬇️ This is where the qty bar will appear -->
+  <div class="salad-qty hidden"></div>
+</div>
+
+          </div>
+
+          <button class="add-plate hidden">🍽 Add to Plate</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<hr style="height: 5px; width: 100%; ; border: none; background-color: #0f6b5c;">
+ <br>
+  <!-- SANDWICH -->
+  <section class="orderSection" data-item="sandwich">
+    <div class="item-card">
+      <div class="left-col">
+        <div class="image-stack" data-card="sandwich">
+          <img src="http://localhost:5500/ExtraImages/sandwich/shami sandwich.jpg" class="img front" alt="sandwich front">
+          <img src="http://localhost:5500/ExtraImages/sandwich/cutlets sandwich.jpg" class="img back" alt="sandwich back">
+        </div>
+      </div>
+
+      <div class="right-col">
+        <button class="item-btn"><b>Sandwich</b></button>
+         <p>These are something new! Take some wheat bread🍞 and add delicious fillings🥓 of your choice. And offcourse some 🫙sauces😏</p>
+
+        <div class="item-body hidden">
+          <h4>Sandwich</h4>
+          <label><input type="checkbox" class="filling" data-type="Shami" data-price="0" data-key="shami">Shami sandwich</label>
+          <label><input type="checkbox" class="filling" data-type="Cutlets" data-price="0" data-key="cutlets">Cutlets sandwich</label>
+          <label><input type="checkbox" class="filling" data-type="Egg Masala" data-price="0" data-key="egg">Egg Masala sandwich</label>
+<hr style="height: 2px; width: 100%; ; border: none; background-color: yellow;">
+          <div class="slice-selector hidden">
+            <label>Choose slices:
+              <select class="slice-select">
+                <option value="2" data-price="0">2 slices</option>
+                <option value="3" data-price="0" selected>3 slices</option>
+                <option value="4" data-price="0">4 slices</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="qty-list"></div>
+
+          <div class="section-extras hidden">
+            <hr style="height: 2px; width: 100%; ; border: none; background-color: yellow;">
+            <p class="extras-title">Extras for Sandwich</p>
+            <div class="extra-choice">
+              
+  <span>Extra Raita? (50/-)</span>
+  <label>
+    <input type="radio" name="sandwich-raita-sandwich" value="yes" class="local-extra-yes" data-extra="raita"> Yes
+  </label>
+  <label>
+    <input type="radio" name="sandwich-raita-sandwich" value="no" class="local-extra-no" checked> No
+  </label>
+  <!-- ⬇️ This is where the qty bar will appear -->
+  <div class="raita-qty hidden"></div>
+</div>
+
+<div class="extra-choice">
+  <span>Extra Salad? (50/-)</span>
+  <label>
+    <input type="radio" name="sandwich-salad-sandwich" value="yes" class="local-extra-yes" data-extra="salad"> Yes
+  </label>
+  <label>
+    <input type="radio" name="sandwich-salad-sandwich" value="no" class="local-extra-no" checked> No
+  </label>
+  <!-- ⬇️ This is where the qty bar will appear -->
+  <div class="salad-qty hidden"></div>
+</div>
+          <div>
+          <button class="add-plate hidden">🍽 Add to Plate</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+ <hr style="height: 5px; width: 100%; ; border: none; background-color: #0f6b5c;">
+ <br>
+  <!--Pink Herbal Teaa-->
+  <section class="orderSection" data-item="pinktea">
+  <div class="item-card">
+    <div class="left-col">
+      <div class="image-stack" data-card="pinktea">
+        <img src="http://localhost:5500/ExtraImages/Tea/Tea1.jpeg" class="img front" alt="Pink Herbal Tea front">
+        <img src="http://localhost:5500/ExtraImages/Tea/Tea2.jpg" class="img back" alt="Pink Herbal Tea back">
+      </div>
+    </div>
+    <div class="right-col">
+      <button class="item-btn"><b>Pink Herbal tea</b></button>
+      <p>Our Pink herbal🍵 tea is a blessing for tea lovers✨🤩. Keeps you cold☃️ in hot weather and hot🔥 in cold weather</p>
+      <div class="item-body hidden">
+     
+        <h4>Choose Temperature (you may select multiple)</h4>
+        <label><input type="checkbox" class="tea-temp" value="Hot tea">Hot tea</label>
+        <label><input type="checkbox" class="tea-temp" value="Cold tea">Cold tea</label>
+        
+        <div class="tea-sweetness hidden">
+        <hr>
+          <h4>Sweetness (you may select multiple)</h4>
+          <label><input type="checkbox" class="tea-sweet" value="Sweet"> Sweet</label>
+          <label><input type="checkbox" class="tea-sweet" value="Sugar-Free"> Sugar free</label>
+        </div>
+       
+        <div class="tea-size hidden">
+            <hr>
+          <h4>Cup size (you may select multiple)</h4>
+          <label><input type="checkbox" class="tea-size-radio" value="Small" data-price="100"> Small (Rs 100)</label>
+          <label><input type="checkbox" class="tea-size-radio" value="Large" data-price="150"> Large (Rs 150)</label>
+        </div>
+      
+        <div class="qty-list hidden"></div>
+        <div class="tea-topping-block hidden">
+          <hr>
+          <h4>Nuts topping choice (select one or both)</h4>
+          <label><input type="checkbox" class="tea-topping" value="With Topping"> With Topping</label>
+          <label><input type="checkbox" class="tea-topping" value="Without Topping"> Without Topping</label>
+        </div>
+        <div class="section-extras hidden">
+          <p class="extras-title">(Topping price will be added per unit when 'With Topping' selected)</p>
+        </div>
+        <button class="add-plate hidden">🍽 Add to Plate</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr style="height: 5px; width: 100%; ; border: none; background-color: #0f6b5c;">
+ <br>
+<!--Log Froze Ketchup-->
+<section class="orderSection" data-item="ketchup">
+  <div class="item-card">
+    <div class="left-col">
+      <div class="image-stack" data-card="ketchup">
+        <img src="http://localhost:5500/ExtraImages/Ketchup/ketchup1.jpg" class="img front" alt="Log Froze Ketchup front">
+        <img src="http://localhost:5500/ExtraImages/Ketchup/Ketchup2.jpg" class="img back" alt="Log Froze Ketchup back">
+      </div>
+    </div>
+
+    <div class="right-col">
+      <button class="item-btn"><b>Log Froze ketchup</b></button>
+       <p>Tired😪 and sick🤒 of eating market's chemical⚗️🧪 loaded ketchup??? Try our homemade 0 chemicals/preservatives🫚 kethcup that also has interesting varities for your moods🤤</p>
+
+      <div class="item-body hidden">
+        <h4>Choose Type (you may select multiple)</h4>
+        <label><input type="checkbox" class="ketchup-type" value="Regular ketchup">Regular ketchup</label>
+        <label><input type="checkbox" class="ketchup-type" value="Extra Spicy ketchup">Extra Spicy ketchup</label>
+        <label><input type="checkbox" class="ketchup-type" value="Extra Sweet ketchup">Extra Sweetketchup</label>
+
+       
+
+        <div class="ketchup-size-block hidden">
+           <hr>
+          <h4>Size (you may select multiple)</h4>
+          <hr>
+          <label><input type="checkbox" class="ketchup-size-radio" value="Small" data-price="120"> Small (Rs 120)</label>
+          <label><input type="checkbox" class="ketchup-size-radio" value="Large" data-price="200"> Large (Rs 200)</label>
+        </div>
+
+        
+
+        <div class="qty-list hidden"></div>
+<hr>
+        <button class="add-plate hidden">🍽 Add to Plate</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</script>
+</body>
+</html>
+
+<hr style="height: 6px; width: 100%; ; border: none; background-color: #000000;">
+</main>
+
+
+
+<!-- Floating My Plate button -->
+<button id="myPlateBtn" class="my-plate-btn" aria-label="Open My Plate"><h2><b>My Plate 🍽</b></h2></button>
+
+<!-- Plate panel (hidden by default) -->
+<aside id="platePanel" class="plate-panel hidden" aria-hidden="true">
+  <h3>🍽 My Plate</h3>
+  <ul id="plateList"></ul>
+  <p class="total">Total: Rs <span id="total">0</span></p>
+  <button id="finalOrder" class="primary"><b>🍽 Final Order</b></button>
+  <button id="closePlate" class="secondary"><b>Close</b></button>
+</aside>
+
+
+<div id="finalOrderModal" class="modal hidden">
+  <div class="modal-content">
+    <button type="button" id="closeFinalModal" class="close-btn">✖</button>
+    <h2>Finalize Your Order</h2>
+
+    <form id="finalOrderForm">
+      <label>Receiver Name:
+        <input type="text" id="receiverName" required>
+      </label>
+      <label>Mobile Number:
+        <input type="text" id="receiverContact" required>
+      </label>
+      <label>Address:
+        <input type="text" id="receiverLocation" required>
+      </label>
+<br><hr style="height: 5px; width: 100%; ; border: none; background-color: #0f6b5c;">
+      <!--Delivery timing--> 
+<label>Delivery Time:</label>
+<div class="timing-row">
+  <div class="timing-option">
+    <label for="nowCheck">Now=</label>
+    <input type="checkbox" id="nowCheck">
+  </div>
+  <div class="timing-option">
+    <label for="scheduleTrigger">Later=</label>
+    <span id="scheduleTrigger" class="calendar-icon">📅</span>
+  </div>
+</div>
+
+<!-- Inline time picker -->
+<div id="scheduleTimeBox" class="hidden inline-time">
+  <input type="time" id="scheduledTime">
+</div>
+<hr style="height: 5px; width: 100%; ; border: none; background-color: #0f6b5c;">
+ <!-- NEW: Payment method -->
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+  <div style="font-weight: 700;">Payment method:</div>
+  <br>
+  <div style="display: flex; gap: 30px;">
+    <label style="display: flex; flex-direction: column; align-items: center;">
+      <span>Cash on Delivery</span>
+      <input type="radio" name="paymentMethod" value="Cash on Delivery">
+    </label>
+    <label style="display: flex; flex-direction: column; align-items: center;">
+      <span>Online</span>
+      <input type="radio" name="paymentMethod" value="Online" checked>
+    </label>
+  </div>
+</div>
+
+
+<hr style="height: 5px; width: 100%; ; border: none; background-color: #0f6b5c;">
+ <!--Maps Location-->
+<button type="button" id="getLocation">📍Share Live Location</button>
+<input type="text" id="locationField" placeholder="Location link will appear here" readonly>
+<br>
+<button type="submit"><b>Done</b></button>
+    </form>
+  </div>
+</div>
+
+
+<!-- Step 2: Ask about second number -->
+<div id="secondNumberModal" class="modal hidden">
+  <div class="final-panel">
+    <p>Would you like to send this order to our second number?</p>
+    <button id="sendSecond">YES Send to 2nd Number</button>
+    <button id="cancelSecond">NO</button>
+  </div>
+</div>
+
+<!-- Step 3: Ask about third number -->
+<div id="thirdNumberModal" class="modal hidden">
+  <div class="final-panel">
+    <p>Would you like to send this order to our third number?</p>
+    <button id="sendThird">YES Send to 3rd Number</button>
+    <button id="cancelThird">NO</button>
+  </div>
+</div>
+
+
+<section class="intro">
+    <h1><i>That's all we have for now.</i></h1>
+    <p>If you wants to get anything added in our kitchen then let us know in our feedback page.</p>
+       <!--Continuous gif-->
+<div class="gif-banner">
+  <img src="http://localhost:5500/Animations\FIREWORKS\bye.gif" alt="Food Banner">
+</div>
+    </section>
+
+<footer>
+    <p>© 2026 LOG FROZE. All Rights Reserved.</p>
+</footer>
+</body>
+</html>
+
+</body>
+</html>
