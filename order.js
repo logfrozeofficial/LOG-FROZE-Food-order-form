@@ -279,7 +279,7 @@ function showPlateNotification() {
     if (!document.querySelector(".curious-emoji")) {
       const curious = document.createElement("div");
       curious.className = "curious-emoji";
-      curious.innerText = "🤔";
+      curious.innerText = "";
       document.getElementById("finalOrderModal").appendChild(curious);
     }
   });
@@ -1242,4 +1242,5 @@ addBtn?.addEventListener("click", (e) => {
      ------------------------- */
   document.body.classList.add("initial-glow");
   setTimeout(() => document.body.classList.remove("initial-glow"), 1600);
+
 });
